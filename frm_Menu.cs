@@ -250,7 +250,7 @@ namespace InventarioCL
 
         private void txtTotMarbetes_Click(object sender, EventArgs e)
         {
-            /*
+            
             timer1.Enabled = false;   
             frmListaMarbetesPorContar f = new frmListaMarbetesPorContar();
             f.ShowDialog();
@@ -258,13 +258,13 @@ namespace InventarioCL
             txtTotLoc.Text = mod.TotLocalizacionesPorContar(Global.piid, Global.id_pareja).ToString();
             txtDiferencias.Text = mod.TotMarbetesConDiferencias(Global.piid, Global.id_pareja).ToString();
             timer1.Enabled = true ;
-            */
+            
 
         }
 
         private void txtTotLoc_Click(object sender, EventArgs e)
         {
-            /*
+            
             timer1.Enabled = false;
             frmListaLocalizacionesPorContar f = new frmListaLocalizacionesPorContar();
             f.ShowDialog();
@@ -275,7 +275,7 @@ namespace InventarioCL
              
             ActualizaDatosMarbetes();
             timer1.Enabled = true;
-              */
+              
         }
 
         private void txtDiferencias_Click(object sender, EventArgs e)
@@ -303,8 +303,9 @@ namespace InventarioCL
         private void btnManual_Click(object sender, EventArgs e)
         {
             timer1.Enabled = false;
+            this.Hide();
             frmMarbeteManual f = new frmMarbeteManual();
-            f.ShowDialog();
+            f.Show();
             /*
             txtTotMarbetes.Text = mod.TotMarbetesPorContar(Global.piid, Global.id_pareja).ToString();
             txtTotLoc.Text = mod.TotLocalizacionesPorContar(Global.piid, Global.id_pareja).ToString();

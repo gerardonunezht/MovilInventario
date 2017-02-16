@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{D0C3BDA2-2CD9-422F-83B8-F6676931282E}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -27,6 +27,8 @@
     <SccProvider>
     </SccProvider>
     <ApplicationIcon>InventarioCL.ico</ApplicationIcon>
+    <StartupObject>
+    </StartupObject>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -161,30 +163,39 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmContarDiferencias.resx">
       <DependentUpon>frmContarDiferencias.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDatosMarbete.resx">
       <DependentUpon>frmDatosMarbete.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDatosPareja.resx">
       <DependentUpon>frmDatosPareja.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLeerMarbeteDiferencias.resx">
       <DependentUpon>frmLeerMarbeteDiferencias.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmListaLocalizacionesPorContar.resx">
       <DependentUpon>frmListaLocalizacionesPorContar.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmListaMarbetesConDiferencia.resx">
       <DependentUpon>frmListaMarbetesConDiferencia.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmListaMarbetesPorContar.resx">
       <DependentUpon>frmListaMarbetesPorContar.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMarbeteManual.resx">
       <DependentUpon>frmMarbeteManual.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSelInventario.resx">
       <DependentUpon>frmSelInventario.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmValidaLocalizacionArticulo.resx">
       <DependentUpon>frmValidaLocalizacionArticulo.cs</DependentUpon>
@@ -192,12 +203,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_login.resx">
       <DependentUpon>frm_login.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_marbete.resx">
       <DependentUpon>frm_marbete.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_Menu.resx">
       <DependentUpon>frm_Menu.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -214,6 +228,7 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="1349985037_Box_Empty.ico" />
     <Content Include="InventarioCL.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CompactFramework.CSharp.targets" />

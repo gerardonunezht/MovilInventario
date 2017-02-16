@@ -1,0 +1,17 @@
+C:\Proyectos VS2008\MovilInventario\obj\Debug\ResolveAssemblyReference.cache
+C:\Proyectos VS2008\MovilInventario\obj\Debug\InventarioCL.frmCargarMarbeteDiferencias.resources
+C:\Proyectos VS2008\MovilInventario\obj\Debug\InventarioCL.frmContarDiferencias.resources
+C:\Proyectos VS2008\MovilInventario\obj\Debug\InventarioCL.frmDatosMarbete.resources
+C:\Proyectos VS2008\MovilInventario\obj\Debug\Picking.frmDatosPareja.resources
+C:\Proyectos VS2008\MovilInventario\obj\Debug\InventarioCL.frmLeerMarbeteDiferencias.resources
+C:\Proyectos VS2008\MovilInventario\obj\Debug\InventarioCL.frmListaLocalizacionesPorContar.resources
+C:\Proyectos VS2008\MovilInventario\obj\Debug\InventarioCL.frmListaMarbetesConDiferencia.resources
+C:\Proyectos VS2008\MovilInventario\obj\Debug\InventarioCL.frmListaMarbetesPorContar.resources
+C:\Proyectos VS2008\MovilInventario\obj\Debug\InventarioCL.frmMarbeteManual.resources
+C:\Proyectos VS2008\MovilInventario\obj\Debug\InventarioCL.frmSelInventario.resources
+C:\Proyectos VS2008\MovilInventario\obj\Debug\InventarioCL.frmValidaLocalizacionArticulo.resources
+C:\Proyectos VS2008\MovilInventario\obj\Debug\InventarioCL.frm_login.resources
+C:\Proyectos VS2008\MovilInventario\obj\Debug\InventarioCL.frm_marbete.resources
+C:\Proyectos VS2008\MovilInventario\obj\Debug\InventarioCL.frm_Menu.resources
+C:\Proyectos VS2008\MovilInventario\obj\Debug\MovilValidacion.Properties.Resources.resources
+C:\Proyectos VS2008\MovilInventario\obj\Debug\MovilValidacion.csproj.GenerateResource.Cache

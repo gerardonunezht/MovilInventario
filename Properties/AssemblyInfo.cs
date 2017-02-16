@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("HECORT")]
 [assembly: AssemblyProduct("InventarioCL")]
-[assembly: AssemblyCopyright("Copyright © HECORT 2015")]
+[assembly: AssemblyCopyright("Copyright © HECORT 2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

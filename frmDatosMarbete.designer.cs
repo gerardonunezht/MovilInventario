@@ -84,7 +84,6 @@
             this.txtLoc.Name = "txtLoc";
             this.txtLoc.Size = new System.Drawing.Size(167, 39);
             this.txtLoc.TabIndex = 0;
-            this.txtLoc.Text = "RECEPCION";
             this.txtLoc.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtLoc_KeyDown);
             // 
             // frmDatosMarbete

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventarioCL", "InventarioCL.csproj", "{D0C3BDA2-2CD9-422F-83B8-F6676931282E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "INVENTARIOCL", "INVENTARIOCL.csproj", "{D0C3BDA2-2CD9-422F-83B8-F6676931282E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

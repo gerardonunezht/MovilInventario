@@ -38,9 +38,9 @@
             // dataGrid1
             // 
             this.dataGrid1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.dataGrid1.Location = new System.Drawing.Point(3, 37);
+            this.dataGrid1.Location = new System.Drawing.Point(3, 8);
             this.dataGrid1.Name = "dataGrid1";
-            this.dataGrid1.Size = new System.Drawing.Size(299, 116);
+            this.dataGrid1.Size = new System.Drawing.Size(234, 177);
             this.dataGrid1.TabIndex = 0;
             // 
             // cboBusqueda
@@ -52,32 +52,37 @@
             this.cboBusqueda.Name = "cboBusqueda";
             this.cboBusqueda.Size = new System.Drawing.Size(100, 23);
             this.cboBusqueda.TabIndex = 1;
+            this.cboBusqueda.Visible = false;
             this.cboBusqueda.SelectedIndexChanged += new System.EventHandler(this.cboBusqueda_SelectedIndexChanged);
             // 
             // txtBusqueda
             // 
-            this.txtBusqueda.Location = new System.Drawing.Point(109, 8);
+            this.txtBusqueda.Location = new System.Drawing.Point(123, 8);
             this.txtBusqueda.Name = "txtBusqueda";
-            this.txtBusqueda.Size = new System.Drawing.Size(193, 23);
+            this.txtBusqueda.Size = new System.Drawing.Size(114, 23);
             this.txtBusqueda.TabIndex = 2;
+            this.txtBusqueda.Visible = false;
             this.txtBusqueda.TextChanged += new System.EventHandler(this.txtBusqueda_TextChanged);
             this.txtBusqueda.GotFocus += new System.EventHandler(this.txtBusqueda_GotFocus);
             this.txtBusqueda.LostFocus += new System.EventHandler(this.txtBusqueda_LostFocus);
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(220, 159);
+            this.btnSalir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnSalir.ForeColor = System.Drawing.Color.Snow;
+            this.btnSalir.Location = new System.Drawing.Point(14, 196);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(80, 25);
+            this.btnSalir.Size = new System.Drawing.Size(80, 40);
             this.btnSalir.TabIndex = 3;
             this.btnSalir.Text = "Salir";
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click_1);
             // 
             // btnActualizar
             // 
-            this.btnActualizar.Location = new System.Drawing.Point(5, 159);
+            this.btnActualizar.BackColor = System.Drawing.Color.Lime;
+            this.btnActualizar.Location = new System.Drawing.Point(145, 196);
             this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(80, 25);
+            this.btnActualizar.Size = new System.Drawing.Size(80, 40);
             this.btnActualizar.TabIndex = 4;
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);

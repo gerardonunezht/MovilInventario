@@ -7,6 +7,8 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Reflection; 
+
 namespace InventarioCL
 {
     public partial class frm_login : Form 
@@ -152,8 +154,27 @@ namespace InventarioCL
             }
         }
 
+        public string GetCurrentPublishVersion()
+        {
+            return Assembly.GetExecutingAssembly().GetName().Version.ToString();
+        }
+
         private void frm_login_Load(object sender, EventArgs e)
         {
+            if (Properties.Resources.cn.ToString().Trim().Contains("produccion"))
+            {
+                lblServidor.ForeColor = Color.Red;
+                lblServidor.Text = "Servidor: Produccion";
+            }
+            else
+            {
+                lblServidor.ForeColor = Color.Green;
+                lblServidor.Text = "Servidor: Pruebas";
+            }
+
+
+    
+            lblCompilacion.Text = "Versión:  " + GetCurrentPublishVersion();
             lista_almacenes();
             if (cbo_almacen.Items.Count != 0)
             {
@@ -203,10 +224,5 @@ namespace InventarioCL
             }
 
         }
-
-
-
-
-
     }
 }

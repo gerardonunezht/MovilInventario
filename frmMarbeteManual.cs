@@ -22,7 +22,8 @@ namespace InventarioCL
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
-           
+            frm_Menu frmMenu = new frm_Menu();
+            frmMenu.Show();
         }
 
         void limpiardatos()
@@ -368,8 +369,8 @@ namespace InventarioCL
             }
             else
             {
-                MessageBox.Show("Error al verificar localizacion, intente otra vez");                
-                
+                MessageBox.Show("Error al verificar localizacion, intente otra vez");
+                limpiardatos();
                 return;
             }
 
@@ -382,6 +383,9 @@ namespace InventarioCL
                  limpiardatos();
                  txtClave.Focus();
                  this.Close();
+                 frm_Menu menu = new frm_Menu();
+                 menu.Show();
+                 
                  
                  
                }

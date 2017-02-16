@@ -378,7 +378,7 @@ namespace InventarioCL
             {
                 if (cn.State == ConnectionState.Closed)
                 {
-                    cn.Open(); 
+                    cn.Open();  
                 }
                 int tot = int.Parse(cmd.ExecuteScalar().ToString());
                 return tot;
