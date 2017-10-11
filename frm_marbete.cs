@@ -18,6 +18,7 @@ namespace InventarioCL
         public int totmarbetes = 0;
         public decimal CantFisica = 0;
         public int marbete = 0;
+        public bool diferencias;
         Global mod = new Global();
 
         void GuardarDatos()
@@ -83,10 +84,14 @@ namespace InventarioCL
 
         private void btn_continuar_Click(object sender, EventArgs e)
         {
+
+            //MessageBox.Show(diferencias.ToString());
+
             if (lbl_marbete.Text.Trim() != "")
             {
                 try
                 {
+                  
                     if (txtCantidad.Text.Trim() != "")
                     {
                         if (!mod.IsNumeric(txtCantidad.Text.Trim()))
@@ -135,10 +140,12 @@ namespace InventarioCL
                                 if (mod.GuardarMarbetePedimento(lbl_marbete.Text.Trim() , Global.pareja_no  , Global.piid  , lbl_clave.Text.Trim(), lbl_loc.Text.Trim().ToUpper() , decimal.Parse(txtCantidad.Text.Trim()), "" ))
                                 {
                                     System.Media.SystemSounds.Beep.Play(); 
-                                   
-                                                                      
-                                    this.Close();
                                     frmDatosMarbete f = new frmDatosMarbete();
+                                    if (diferencias == true)
+                                    {
+                                        f.diferencias = true;
+                                    }
+                                    this.Close();
                                     f.Show();                                    
                                     return;
                                 }                                
@@ -149,8 +156,12 @@ namespace InventarioCL
                                 //guardar los datos del marbete normal
                                 if (mod.guardar_marbete(lbl_marbete.Text.Trim()  , Global.pareja_no  , Global.piid  , txtCantidad.Text.Trim()   , ""))
                                 {                                 
-                                    this.Close();
                                     frmDatosMarbete f = new frmDatosMarbete();
+                                    if (diferencias == true)
+                                    {
+                                        f.diferencias = true;
+                                    }
+                                    this.Close();
                                     f.Show();
                                     return;
                                 }
@@ -163,8 +174,13 @@ namespace InventarioCL
                             if (mod.guardar_marbete(lbl_marbete.Text.Trim(), Global.pareja_no  , Global.piid  , txtCantidad.Text.Trim()   , ""))
                             {                               
                               System.Media.SystemSounds.Beep.Play();
-                              this.Close();
                               frmDatosMarbete f = new frmDatosMarbete();
+                              if (diferencias == true)
+                              {
+                                  f.diferencias = true;
+                              }
+                              this.Close();
+
                               f.Show();
                               return;  
                             }
@@ -196,6 +212,8 @@ namespace InventarioCL
 
         private void frm_marbete_Load(object sender, EventArgs e)
         {
+            //txt_loc.Focus();
+            //txt_loc.SelectAll();
             txtCantidad.Focus();
             if (marbete > 0)
             {

@@ -177,7 +177,7 @@
             // 
             // txtDiferencias
             // 
-            this.txtDiferencias.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
+            this.txtDiferencias.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
             this.txtDiferencias.Location = new System.Drawing.Point(93, 57);
             this.txtDiferencias.Name = "txtDiferencias";
             this.txtDiferencias.Size = new System.Drawing.Size(43, 20);
@@ -196,7 +196,7 @@
             // 
             // txtTotLoc
             // 
-            this.txtTotLoc.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
+            this.txtTotLoc.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
             this.txtTotLoc.Location = new System.Drawing.Point(93, 5);
             this.txtTotLoc.Name = "txtTotLoc";
             this.txtTotLoc.Size = new System.Drawing.Size(43, 20);
@@ -207,7 +207,7 @@
             // 
             // txtTotMarbetes
             // 
-            this.txtTotMarbetes.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
+            this.txtTotMarbetes.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
             this.txtTotMarbetes.Location = new System.Drawing.Point(92, 31);
             this.txtTotMarbetes.Name = "txtTotMarbetes";
             this.txtTotMarbetes.Size = new System.Drawing.Size(44, 20);

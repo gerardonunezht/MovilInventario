@@ -53,17 +53,19 @@
             // 
             // cbo_almacen
             // 
+            this.cbo_almacen.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
             this.cbo_almacen.Location = new System.Drawing.Point(97, 60);
             this.cbo_almacen.Name = "cbo_almacen";
-            this.cbo_almacen.Size = new System.Drawing.Size(111, 23);
+            this.cbo_almacen.Size = new System.Drawing.Size(111, 22);
             this.cbo_almacen.TabIndex = 1;
             this.cbo_almacen.SelectedValueChanged += new System.EventHandler(this.cbo_almacen_SelectedValueChanged);
             // 
             // cbo_inventario
             // 
+            this.cbo_inventario.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
             this.cbo_inventario.Location = new System.Drawing.Point(97, 87);
             this.cbo_inventario.Name = "cbo_inventario";
-            this.cbo_inventario.Size = new System.Drawing.Size(111, 23);
+            this.cbo_inventario.Size = new System.Drawing.Size(111, 22);
             this.cbo_inventario.TabIndex = 2;
             // 
             // label2
@@ -100,27 +102,28 @@
             // label3
             // 
             this.label3.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular);
-            this.label3.Location = new System.Drawing.Point(8, 116);
+            this.label3.Location = new System.Drawing.Point(3, 116);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(88, 18);
-            this.label3.Text = "# Empleado";
+            this.label3.Size = new System.Drawing.Size(121, 18);
+            this.label3.Text = "Numero Nómina";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // txtPareja
             // 
             this.txtPareja.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.txtPareja.Location = new System.Drawing.Point(97, 114);
+            this.txtPareja.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
+            this.txtPareja.Location = new System.Drawing.Point(130, 114);
             this.txtPareja.Name = "txtPareja";
-            this.txtPareja.Size = new System.Drawing.Size(111, 23);
+            this.txtPareja.Size = new System.Drawing.Size(78, 22);
             this.txtPareja.TabIndex = 3;
             this.txtPareja.GotFocus += new System.EventHandler(this.txtPareja_GotFocus);
             this.txtPareja.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtPareja_KeyUp);
-            this.txtPareja.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPareja_KeyPress);
             this.txtPareja.LostFocus += new System.EventHandler(this.txtPareja_LostFocus);
             // 
             // pic_LogoHT
             // 
             this.pic_LogoHT.Image = ((System.Drawing.Image)(resources.GetObject("pic_LogoHT.Image")));
-            this.pic_LogoHT.Location = new System.Drawing.Point(70, 1);
+            this.pic_LogoHT.Location = new System.Drawing.Point(85, 1);
             this.pic_LogoHT.Name = "pic_LogoHT";
             this.pic_LogoHT.Size = new System.Drawing.Size(63, 58);
             this.pic_LogoHT.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -148,7 +151,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoScroll = true;
-            this.BackColor = System.Drawing.Color.Gray;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(186)))), ((int)(((byte)(57)))));
             this.ClientSize = new System.Drawing.Size(638, 455);
             this.ControlBox = false;
             this.Controls.Add(this.lblServidor);

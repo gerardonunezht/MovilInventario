@@ -11,12 +11,14 @@ namespace InventarioCL
 {
     public partial class frmDatosMarbete : Form
     {
+
         public frmDatosMarbete()
         {
             InitializeComponent();
         }
 
         Global mod = new Global();
+        public bool diferencias;
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
@@ -128,27 +130,67 @@ namespace InventarioCL
         {
             if (e.KeyCode == Keys.Enter && txtLoc.Text.Trim() != "")
             {
-                //verificar que la localizacion sea valida
-                if (!mod.ValidaLocalizacionInventario(txtLoc.Text.Trim().ToUpper(), Global.piid))
+                if (diferencias==false)
                 {
-                    txtLoc.Text = "";
-                    txtLoc.Focus();
-
-                    return;
+                    int tot = mod.ValidaLocalizacionInventario(txtLoc.Text.Trim().ToUpper(), Global.piid);
+                    if (tot > 0)
+                    {
+                        frmValidaLocalizacionArticulo f = new frmValidaLocalizacionArticulo();
+                        f.txtLoc.Text = txtLoc.Text.ToString().Trim();
+                        this.Close();
+                        f.Show();
+                    }
+                    else if (tot == 0)
+                    {
+                        MessageBox.Show("Usuario no asignado a esta localización.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+                        txtLoc.Text = "";
+                    }
+                    else if (tot == -1)
+                    {
+                        MessageBox.Show("Localización sin marbete.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+                        btnMarbeteManual.Visible = true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error...", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+                    }
                 }
                 else
                 {
-                    
-
-                      
-                    frmValidaLocalizacionArticulo f = new frmValidaLocalizacionArticulo();
-                    f.txtLoc.Text = txtLoc.Text.ToString().Trim();
-                    this.Close();  
-                    f.Show();
-                    //this.ShowDialog();
-                    
-
+                    if (!mod.ValidaLocalizacionInventarioConDiferencias(txtLoc.Text.Trim().ToUpper(), Global.piid))
+                    {
+                        MessageBox.Show("La localización no tiene diferencia de conteo.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+                    }
+                    else
+                    {
+                        frmValidaLocalizacionArticulo f = new frmValidaLocalizacionArticulo();
+                        f.txtLoc.Text = txtLoc.Text.ToString().Trim();
+//                        MessageBox.Show(diferencias.ToString());
+                        f.diferencias = true;
+                        this.Close();
+                        f.Show();
+                        
+                    }
                 }
+                
+
+                //verificar que la localizacion sea valida
+                //if (!mod.ValidaLocalizacionInventario(txtLoc.Text.Trim().ToUpper(), Global.piid))
+                //{
+                //    txtLoc.Text = "";
+                //    txtLoc.Focus();
+                //    return;
+                //}
+                //else
+                //{
+                //frmValidaLocalizacionArticulo f = new frmValidaLocalizacionArticulo();
+                //f.txtLoc.Text = txtLoc.Text.ToString().Trim();
+                //this.Close();
+                //f.Show();
+
+                //this.ShowDialog();
+                   
+                //}
 
                 /*
                 //obtener los datos del marbete asignado a la localizacion
@@ -238,7 +280,25 @@ namespace InventarioCL
 
         private void frmDatosMarbete_Load(object sender, EventArgs e)
         {
-            txtLoc.Focus();  
+            btnMarbeteManual.Visible = false;
+            txtLoc.Focus();
+            if (diferencias==true)
+            {
+                lblDif.Visible = true;
+            }
+            else
+            {
+                lblDif.Visible = false;
+
+            }
+        }
+
+        private void btnMarbeteManual_Click(object sender, EventArgs e)
+        {
+            frmMarbeteManual formMarbeteManual = new frmMarbeteManual();
+            btnMarbeteManual.Visible = false;
+            this.Close();
+            formMarbeteManual.Show();
         }
 
     }

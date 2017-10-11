@@ -45,6 +45,7 @@
             this.statusBar1 = new System.Windows.Forms.StatusBar();
             this.label1 = new System.Windows.Forms.Label();
             this.txtVerificarCant = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lbl_marbete
@@ -60,7 +61,7 @@
             // lbl_clave
             // 
             this.lbl_clave.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
-            this.lbl_clave.Location = new System.Drawing.Point(5, 31);
+            this.lbl_clave.Location = new System.Drawing.Point(7, 29);
             this.lbl_clave.Name = "lbl_clave";
             this.lbl_clave.Size = new System.Drawing.Size(115, 20);
             this.lbl_clave.Text = "Clave";
@@ -77,25 +78,29 @@
             // 
             // lblUnidad
             // 
-            this.lblUnidad.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold);
+            this.lblUnidad.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.lblUnidad.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold);
             this.lblUnidad.ForeColor = System.Drawing.Color.Red;
-            this.lblUnidad.Location = new System.Drawing.Point(5, 99);
+            this.lblUnidad.Location = new System.Drawing.Point(148, 100);
             this.lblUnidad.Name = "lblUnidad";
-            this.lblUnidad.Size = new System.Drawing.Size(107, 24);
+            this.lblUnidad.Size = new System.Drawing.Size(74, 24);
             this.lblUnidad.Text = "unidad";
+            this.lblUnidad.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // lbl_loc
             // 
-            this.lbl_loc.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
-            this.lbl_loc.Location = new System.Drawing.Point(81, 9);
+            this.lbl_loc.BackColor = System.Drawing.Color.Black;
+            this.lbl_loc.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold);
+            this.lbl_loc.ForeColor = System.Drawing.Color.Lime;
+            this.lbl_loc.Location = new System.Drawing.Point(5, 100);
             this.lbl_loc.Name = "lbl_loc";
-            this.lbl_loc.Size = new System.Drawing.Size(112, 20);
+            this.lbl_loc.Size = new System.Drawing.Size(137, 24);
             this.lbl_loc.Text = "Loc.";
             // 
             // lbl_pasillo
             // 
             this.lbl_pasillo.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
-            this.lbl_pasillo.Location = new System.Drawing.Point(139, 29);
+            this.lbl_pasillo.Location = new System.Drawing.Point(139, 32);
             this.lbl_pasillo.Name = "lbl_pasillo";
             this.lbl_pasillo.Size = new System.Drawing.Size(83, 17);
             this.lbl_pasillo.Text = "Pasillo";
@@ -103,7 +108,7 @@
             // btn_continuar
             // 
             this.btn_continuar.BackColor = System.Drawing.Color.Lime;
-            this.btn_continuar.Location = new System.Drawing.Point(43, 174);
+            this.btn_continuar.Location = new System.Drawing.Point(110, 173);
             this.btn_continuar.Name = "btn_continuar";
             this.btn_continuar.Size = new System.Drawing.Size(111, 31);
             this.btn_continuar.TabIndex = 22;
@@ -114,7 +119,7 @@
             // 
             this.btn_salir.BackColor = System.Drawing.Color.Maroon;
             this.btn_salir.ForeColor = System.Drawing.Color.White;
-            this.btn_salir.Location = new System.Drawing.Point(65, 211);
+            this.btn_salir.Location = new System.Drawing.Point(4, 173);
             this.btn_salir.Name = "btn_salir";
             this.btn_salir.Size = new System.Drawing.Size(70, 30);
             this.btn_salir.TabIndex = 23;
@@ -136,7 +141,7 @@
             // 
             // txtCantidad
             // 
-            this.txtCantidad.Location = new System.Drawing.Point(5, 142);
+            this.txtCantidad.Location = new System.Drawing.Point(4, 143);
             this.txtCantidad.Name = "txtCantidad";
             this.txtCantidad.Size = new System.Drawing.Size(70, 23);
             this.txtCantidad.TabIndex = 36;
@@ -151,15 +156,13 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(42, 20);
             this.label3.Text = "Lote:";
-            this.label3.Visible = false;
             // 
             // lblLote
             // 
             this.lblLote.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
-            this.lblLote.Location = new System.Drawing.Point(95, 100);
+            this.lblLote.Location = new System.Drawing.Point(212, 100);
             this.lblLote.Name = "lblLote";
-            this.lblLote.Size = new System.Drawing.Size(127, 20);
-            this.lblLote.Visible = false;
+            this.lblLote.Size = new System.Drawing.Size(10, 20);
             // 
             // lblTotMarbetes
             // 
@@ -181,20 +184,29 @@
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(95, 123);
+            this.label1.Location = new System.Drawing.Point(87, 124);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(137, 14);
             this.label1.Text = "Verificar Cantidad:";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // txtVerificarCant
             // 
-            this.txtVerificarCant.Location = new System.Drawing.Point(119, 142);
+            this.txtVerificarCant.Location = new System.Drawing.Point(147, 143);
             this.txtVerificarCant.Name = "txtVerificarCant";
-            this.txtVerificarCant.Size = new System.Drawing.Size(76, 23);
+            this.txtVerificarCant.Size = new System.Drawing.Size(74, 23);
             this.txtVerificarCant.TabIndex = 47;
             this.txtVerificarCant.GotFocus += new System.EventHandler(this.txtVerificarCant_GotFocus);
             this.txtVerificarCant.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtVerificarCant_KeyDown);
             this.txtVerificarCant.LostFocus += new System.EventHandler(this.txtVerificarCant_LostFocus);
+            // 
+            // label4
+            // 
+            this.label4.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.label4.Location = new System.Drawing.Point(119, 8);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(83, 17);
+            this.label4.Text = "Marbetes";
             // 
             // frm_marbete
             // 
@@ -204,6 +216,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(640, 480);
             this.ControlBox = false;
+            this.Controls.Add(this.lbl_loc);
             this.Controls.Add(this.lblUnidad);
             this.Controls.Add(this.txtVerificarCant);
             this.Controls.Add(this.label1);
@@ -216,10 +229,10 @@
             this.Controls.Add(this.btn_salir);
             this.Controls.Add(this.btn_continuar);
             this.Controls.Add(this.lbl_pasillo);
-            this.Controls.Add(this.lbl_loc);
             this.Controls.Add(this.txt_desc);
             this.Controls.Add(this.lbl_clave);
             this.Controls.Add(this.lbl_marbete);
+            this.Controls.Add(this.label4);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "frm_marbete";
             this.Text = "frm_pasillos";
@@ -249,5 +262,6 @@
         private System.Windows.Forms.StatusBar statusBar1;
         private System.Windows.Forms.Label label1;
         public System.Windows.Forms.TextBox txtVerificarCant;
+        public System.Windows.Forms.Label label4;
     }
 }

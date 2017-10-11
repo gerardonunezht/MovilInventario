@@ -37,24 +37,24 @@
             this.txtUnidad = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtCantidad1 = new System.Windows.Forms.TextBox();
-            this.txtCantidad2 = new System.Windows.Forms.TextBox();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(27, 0);
+            this.label1.Location = new System.Drawing.Point(28, 42);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(42, 20);
             this.label1.Text = "Clave:";
             // 
             // txtClave
             // 
-            this.txtClave.Location = new System.Drawing.Point(4, 19);
+            this.txtClave.Location = new System.Drawing.Point(5, 61);
             this.txtClave.Name = "txtClave";
             this.txtClave.Size = new System.Drawing.Size(90, 23);
             this.txtClave.TabIndex = 1;
@@ -66,7 +66,7 @@
             // 
             this.txtDesc.BackColor = System.Drawing.Color.White;
             this.txtDesc.Enabled = false;
-            this.txtDesc.Location = new System.Drawing.Point(0, 64);
+            this.txtDesc.Location = new System.Drawing.Point(2, 105);
             this.txtDesc.Multiline = true;
             this.txtDesc.Name = "txtDesc";
             this.txtDesc.Size = new System.Drawing.Size(217, 45);
@@ -74,7 +74,7 @@
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(66, 111);
+            this.label2.Location = new System.Drawing.Point(29, 150);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(83, 15);
             this.label2.Text = "Localizacion:";
@@ -82,9 +82,9 @@
             // txtLoc
             // 
             this.txtLoc.Enabled = false;
-            this.txtLoc.Location = new System.Drawing.Point(41, 130);
+            this.txtLoc.Location = new System.Drawing.Point(4, 169);
             this.txtLoc.Name = "txtLoc";
-            this.txtLoc.Size = new System.Drawing.Size(131, 23);
+            this.txtLoc.Size = new System.Drawing.Size(117, 23);
             this.txtLoc.TabIndex = 5;
             this.txtLoc.GotFocus += new System.EventHandler(this.txtLoc_GotFocus);
             this.txtLoc.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtLoc_KeyDown);
@@ -92,7 +92,7 @@
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(144, 0);
+            this.label3.Location = new System.Drawing.Point(145, 42);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(52, 20);
             this.label3.Text = "Unidad:";
@@ -101,14 +101,14 @@
             // 
             this.txtUnidad.BackColor = System.Drawing.Color.White;
             this.txtUnidad.Enabled = false;
-            this.txtUnidad.Location = new System.Drawing.Point(124, 19);
+            this.txtUnidad.Location = new System.Drawing.Point(125, 61);
             this.txtUnidad.Name = "txtUnidad";
-            this.txtUnidad.Size = new System.Drawing.Size(90, 23);
+            this.txtUnidad.Size = new System.Drawing.Size(93, 23);
             this.txtUnidad.TabIndex = 8;
             // 
             // label4
             // 
-            this.label4.Location = new System.Drawing.Point(28, 154);
+            this.label4.Location = new System.Drawing.Point(143, 151);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(63, 15);
             this.label4.Text = "Cantidad:";
@@ -116,23 +116,12 @@
             // txtCantidad1
             // 
             this.txtCantidad1.Enabled = false;
-            this.txtCantidad1.Location = new System.Drawing.Point(25, 173);
+            this.txtCantidad1.Location = new System.Drawing.Point(127, 168);
             this.txtCantidad1.Name = "txtCantidad1";
-            this.txtCantidad1.Size = new System.Drawing.Size(66, 23);
+            this.txtCantidad1.Size = new System.Drawing.Size(92, 23);
             this.txtCantidad1.TabIndex = 11;
             this.txtCantidad1.GotFocus += new System.EventHandler(this.txtCantidad1_GotFocus);
             this.txtCantidad1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCantidad1_KeyDown);
-            // 
-            // txtCantidad2
-            // 
-            this.txtCantidad2.Enabled = false;
-            this.txtCantidad2.Location = new System.Drawing.Point(114, 173);
-            this.txtCantidad2.Name = "txtCantidad2";
-            this.txtCantidad2.Size = new System.Drawing.Size(78, 23);
-            this.txtCantidad2.TabIndex = 12;
-            this.txtCantidad2.GotFocus += new System.EventHandler(this.txtCantidad2_GotFocus);
-            this.txtCantidad2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCantidad2_KeyDown);
-            this.txtCantidad2.LostFocus += new System.EventHandler(this.txtCantidad2_LostFocus);
             // 
             // btnGuardar
             // 
@@ -154,13 +143,6 @@
             this.btnSalir.Text = "Salir";
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
-            // label5
-            // 
-            this.label5.Location = new System.Drawing.Point(97, 155);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(117, 15);
-            this.label5.Text = "Verificar Cantidad:";
-            // 
             // btnNuevo
             // 
             this.btnNuevo.BackColor = System.Drawing.Color.Blue;
@@ -175,10 +157,25 @@
             // 
             // label6
             // 
-            this.label6.Location = new System.Drawing.Point(71, 44);
+            this.label6.Location = new System.Drawing.Point(73, 85);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(83, 20);
             this.label6.Text = "Descripción:";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(6, 19);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(213, 23);
+            this.textBox1.TabIndex = 24;
+            this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
+            // 
+            // label5
+            // 
+            this.label5.Location = new System.Drawing.Point(5, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(187, 20);
+            this.label5.Text = "Codigo de Barras";
             // 
             // frmMarbeteManual
             // 
@@ -186,12 +183,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(638, 455);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnNuevo);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.btnSalir);
-            this.Controls.Add(this.txtCantidad2);
             this.Controls.Add(this.txtCantidad1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtUnidad);
@@ -204,6 +201,7 @@
             this.Name = "frmMarbeteManual";
             this.Text = "Marbete Manual";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.frmMarbeteManual_Load);
             this.ResumeLayout(false);
 
         }
@@ -219,11 +217,11 @@
         private System.Windows.Forms.TextBox txtUnidad;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtCantidad1;
-        private System.Windows.Forms.TextBox txtCantidad2;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnSalir;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label5;
     }
 }

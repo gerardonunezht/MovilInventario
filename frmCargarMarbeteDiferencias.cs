@@ -43,7 +43,7 @@ namespace InventarioCL
                     }*/
 
                     timer3.Enabled = false;
-                    timer2.Enabled = false;
+                    //timer2.Enabled = false;
                     timer1.Enabled = false;
                     this.Close();
                     
@@ -128,13 +128,13 @@ namespace InventarioCL
                         lblTotConteos.Text = mod.TotConteosMarbete(Global.piid, Etiqueta).ToString().Trim();
                         if (!string.IsNullOrEmpty(dr["LotSerNbr"].ToString().Trim()))
                         {
-                            lblLote.Text = dr["LotSerNbr"].ToString().Trim();
+                            //lblLote.Text = dr["LotSerNbr"].ToString().Trim();
                             lblTotMarbetes.Text = mod.TotMarbetesLocalizacion(Etiqueta, dr["Clave"].ToString().Trim(), dr["Localizacion"].ToString().Trim()).ToString();
                             totmarbetes = mod.TotMarbetesLocalizacion(Etiqueta, dr["Clave"].ToString().Trim(), dr["Localizacion"].ToString().Trim());
                         }
                         else
                         {
-                            lblLote.Text = "";
+                            //lblLote.Text = "";
                             lblTotMarbetes.Text = "1";
                             totmarbetes = 1;
                         }
@@ -202,7 +202,7 @@ namespace InventarioCL
             lbl_loc.Text = "";
             lbl_clave.Text = "";
             lbl_pasillo.Text = "";
-            lblLote.Text = "";
+            //lblLote.Text = "";
             lblTotConteos.Text = "0";
             lblTotMarbetes.Text = "0";
             txt_desc.Text = "";
@@ -227,19 +227,19 @@ namespace InventarioCL
             try
             {
                 timer3.Enabled = false;
-                if (lblLote.Text.Trim() != "")
-                {
-                    if (totmarbetes > 1)
+                if (totmarbetes > 1)
                     {
                         //guardar la cantidad distribuyendola de manera proporcional en los marbetes
                         if (mod.GuardarMarbetePedimentoConDiferencias(lbl_marbete.Text.Trim(), Global.pareja_no, Global.piid, lbl_clave.Text.Trim(), lbl_loc.Text.Trim().ToUpper(), decimal.Parse(txtCantidad.Text.Trim()), ""))
                         {
+                            mod.ActualizaContador(0, lbl_clave.Text.ToString().Trim(), Global.piid.ToString().Trim(), Global.siteid.ToString().Trim(), lbl_loc.Text);
+
                             timer3.Enabled = false;
                             System.Media.SystemSounds.Beep.Play();
                             statusBar1.Text = "";
                             LimpiarDatos();
                             timer1.Enabled = true;
-                            timer2.Enabled = true;
+                            //timer2.Enabled = true;
 
                             return;
                         }
@@ -250,19 +250,23 @@ namespace InventarioCL
                         //guardar los datos del marbete normal
                         if (mod.GuardarMarbeteConteo2(lbl_marbete.Text.Trim(), Global.pareja_no, Global.piid, txtCantidad.Text.Trim(), ""))
                         {
+                            mod.ActualizaContador(0, lbl_clave.Text.ToString().Trim(), Global.piid.ToString().Trim(), Global.siteid.ToString().Trim(), lbl_loc.Text);
+
                             System.Media.SystemSounds.Beep.Play();
                             LimpiarDatos();
                             
                             timer1.Enabled = true;
                             timer3.Enabled = false;
+
                             return;
                         }
                     }
-                }
-                else
-                {  //guardar los datos del marbete normal
+                //else
+                //{  //guardar los datos del marbete normal
                     if (mod.GuardarMarbeteConteo2(lbl_marbete.Text.Trim(), Global.pareja_no, Global.piid, txtCantidad.Text.Trim(), ""))
                     {
+                        mod.ActualizaContador(0, lbl_clave.Text.ToString().Trim(), Global.piid.ToString().Trim(), Global.siteid.ToString().Trim(), lbl_loc.Text);
+
                         System.Media.SystemSounds.Beep.Play();
                         LimpiarDatos();
                         
@@ -270,9 +274,14 @@ namespace InventarioCL
                         timer3.Enabled = false;
                         return;
                     }
-                }
+                //}
+                    mod.ActualizaContador(0, lbl_clave.Text.ToString().Trim(), Global.piid.ToString().Trim(), Global.siteid.ToString().Trim(), lbl_loc.Text);
+
                 this.Hide();
                 this.Close();
+                timer1.Enabled = false;
+                timer3.Enabled = false;
+
                 frmDatosMarbete f = new frmDatosMarbete();
                 f.ShowDialog();
 
@@ -284,6 +293,8 @@ namespace InventarioCL
                 LimpiarDatos();
 
             }
+            mod.ActualizaContador(0, lbl_clave.Text.ToString().Trim(), Global.piid.ToString().Trim(), Global.siteid.ToString().Trim(), lbl_loc.Text);
+
             this.Hide();
             this.Close();
             //frmDatosMarbete f = new frmDatosMarbete();
@@ -333,25 +344,25 @@ namespace InventarioCL
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            /*
-            timer1.Enabled = false;
-            //obtener el marbete para contar
-            if (ObtenerMarbete())
-            {
-                statusBar1.Text = "";
-                System.Media.SystemSounds.Exclamation.Play();
-                timer2.Enabled = false;
-                timer3.Enabled = true;
-                txtCantidad.Text = "";
-                txtCantidad.Focus();
-                btn_continuar.Enabled = true;
+            
+            //timer1.Enabled = false;
+            ////obtener el marbete para contar
+            //if (ObtenerMarbete())
+            //{
+            //    statusBar1.Text = "";
+            //    System.Media.SystemSounds.Exclamation.Play();
+            //    //timer2.Enabled = false;
+            //    timer3.Enabled = true;
+            //    txtCantidad.Text = "";
+            //    txtCantidad.Focus();
+            //    btn_continuar.Enabled = true;
 
-            }
-            else
-            {
-                timer1.Enabled = true;
-            }
-             */
+            //}
+            //else
+            //{
+            //    timer1.Enabled = true;
+            //}
+             
 
         }
 
@@ -441,8 +452,14 @@ namespace InventarioCL
 
         private void frmCargarMarbeteDiferencias_Load(object sender, EventArgs e)
         {
-            
-            txtCantidad.Focus();
+            timer3.Enabled = true;
+            txt_loc.Focus();
+            txt_loc.SelectAll();
+            //if (marbete > 0)
+            //{
+            //    timer1.Enabled = true;
+            //}
+            //txtCantidad.Focus();
         }
 
         private void btn_continuar_Click(object sender, EventArgs e)
@@ -451,7 +468,7 @@ namespace InventarioCL
             {
                 try
                 {
-                    timer3.Enabled = false;
+                    
                     if (txtCantidad.Text.Trim() == "")
                     {
                         MessageBox.Show("Introduzca la cantidad correctamente...");
@@ -481,6 +498,7 @@ namespace InventarioCL
                     if (decimal.Parse(txtCantidad.Text.Trim()) == decimal.Parse(txtVerifCantidad.Text.Trim()))
                     {
                         GuardarDatos();
+                        timer3.Enabled = false;
                         return;
                     }
                     else
@@ -512,7 +530,15 @@ namespace InventarioCL
             
             if (statusBar1.Text.Trim() == "")
             {
-                statusBar1.Text = "Introduzca la Cantidad...";
+                if (txt_loc.Visible)
+                {
+                    statusBar1.Text = "Confirme la localización...";
+
+                }
+                else
+                {
+                    statusBar1.Text = "Introduzca la Cantidad...";
+                }
                 System.Media.SystemSounds.Asterisk.Play();
             }
             else
@@ -521,19 +547,55 @@ namespace InventarioCL
             }
         }
 
-        private void frmCargarMarbeteDiferencias_Closed(object sender, EventArgs e)
-        {
-            timer3.Enabled = false;
-            timer2.Enabled = false;
-            timer1.Enabled = false;
-        }
-
         private void frmCargarMarbeteDiferencias_GotFocus(object sender, EventArgs e)
         {
             System.Media.SystemSounds.Exclamation.Play();
             timer3.Enabled = true;
 
         }
-        
+
+        private void txt_loc_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (lbl_loc.Text.Equals(txt_loc.Text.ToUpper().Trim()))
+                {
+                    //lbl_marbete.Visible = true;
+                    label4.Visible = true;
+                    lblTotMarbetes.Visible = true;
+                    lbl_clave.Visible = true;
+                    lbl_pasillo.Visible = true;
+                    txt_desc.Visible = true;
+                    lblUnidad.Visible = true;
+                    label2.Visible = true;
+                    label1.Visible = true;
+                    txtCantidad.Visible = true;
+                    txtVerifCantidad.Visible = true;
+                    btn_salir.Visible = true;
+                    btn_continuar.Visible = true;
+                    txt_loc.Visible = false;
+                    label5.Visible = true;
+                    lblTotConteos.Visible = true;
+                    txtCantidad.Enabled = true;
+                    txtVerifCantidad.Enabled = true;
+                    txtCantidad.Focus();
+                }
+                else
+                {
+                    MessageBox.Show("La localización no coincide, favor de verificar.");
+                    txt_loc.Text = "";
+                    txt_loc.Focus();
+
+                }
+
+            }
+        }
+
+        private void frmCargarMarbeteDiferencias_Closing(object sender, CancelEventArgs e)
+        {
+            timer3.Enabled = false;
+            timer1.Enabled = false;
+        }
+
     }
 }

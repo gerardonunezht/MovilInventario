@@ -12,6 +12,7 @@ namespace InventarioCL
     public partial class frmValidaLocalizacionArticulo : Form
     {
         Global mod = new Global();
+        public bool diferencias;
 
         public frmValidaLocalizacionArticulo()
         {
@@ -49,107 +50,224 @@ namespace InventarioCL
                 {
                     if (txtLoc.Text.Trim() != "")
                     {
-
-                        //obtener los datos del marbete asignado a la localizacion por articulo
-                        DataSet dt = mod.ObtenerMarbeteLocalizacion(txtLoc.Text.Trim().ToUpper(), Global.piid, txtArt.Text.Trim());
-                        int marbete = 0;
-                        if (dt != null)
+                        //MessageBox.Show(diferencias.ToString());
+                        if (diferencias!=true)
                         {
-                            if (dt.Tables.Count > 0)
+                            //obtener los datos del marbete asignado a la localizacion por articulo
+                            DataSet dt = mod.ObtenerMarbeteLocalizacion(txtLoc.Text.Trim().ToUpper(), Global.piid, txtArt.Text.Trim());
+                            int marbete = 0;
+                            if (dt != null)
                             {
-                                if (dt.Tables[0].Rows.Count > 0)
+                                if (dt.Tables.Count > 0)
                                 {
-                                    DataRow dr = dt.Tables[0].Rows[0];
-                                    //Conteo1
-                                    //Diferencias
-                                    //IdPareja
-
-                                    marbete = int.Parse(dr["Etiqueta"].ToString());
-
-                                    if (!string.IsNullOrEmpty(dr["Conteo1"].ToString()))
+                                    if (dt.Tables[0].Rows.Count > 0)
                                     {
-                                        if (!string.IsNullOrEmpty(dr["Diferencias"].ToString()))
+                                        DataRow dr = dt.Tables[0].Rows[0];
+                                        //Conteo1
+                                        //Diferencias
+                                        //IdPareja
+
+                                        marbete = int.Parse(dr["Etiqueta"].ToString());
+
+                                        if (!string.IsNullOrEmpty(dr["Conteo1"].ToString()))
                                         {
-                                            if (bool.Parse(dr["Diferencias"].ToString()))
+                                            if (!string.IsNullOrEmpty(dr["Diferencias"].ToString()))
                                             {
-                                                MessageBox.Show("Marbete con diferencias ya fue capturado");
-                                                this.Close();
+                                                if (bool.Parse(dr["Diferencias"].ToString()))
+                                                {
+                                                    MessageBox.Show("Marbete con diferencias ya fue capturado");
+                                                    this.Close();
 
-                                                return;
-                                                
+                                                    return;
 
+
+                                                }
                                             }
                                         }
-                                    }
-                                    //Pasillo, 
-                                    //Etiqueta, 
-                                    //Clave, 
-                                    //Localizacion, Cant_Fisica, Unidad, Costo, Conteo1, Conteo2, Observaciones, Variacion_Conteo, Diferencias, Conteos, IdPareja, 
-                                    //Descr, LotSerNbr
+                                        //Pasillo, 
+                                        //Etiqueta, 
+                                        //Clave, 
+                                        //Localizacion, Cant_Fisica, Unidad, Costo, Conteo1, Conteo2, Observaciones, Variacion_Conteo, Diferencias, Conteos, IdPareja, 
+                                        //Descr, LotSerNbr
 
-                                    frm_marbete f = new frm_marbete();
-                                    frmDatosMarbete f2 = new frmDatosMarbete();
-                                    f.marbete = marbete;
-                                    f.lbl_marbete.Text = marbete.ToString();
-                                    f.lbl_clave.Text = dr["Clave"].ToString().Trim();
-                                    f.lbl_loc.Text = dr["Localizacion"].ToString().Trim();
-                                    f.txt_desc.Text = dr["Descr"].ToString().Trim();
-                                    f.lblUnidad.Text = dr["Unidad"].ToString().Trim();
-                                    f.CantFisica = decimal.Parse(dr["Cant_Fisica"].ToString().Trim());
-                                    f.lbl_pasillo.Text = dr["Pasillo"].ToString().Trim();
-                                    if (!string.IsNullOrEmpty(dr["LotSerNbr"].ToString().Trim()))
-                                    {
-                                        f.lblLote.Text = dr["LotSerNbr"].ToString().Trim();
-                                        f.lblTotMarbetes.Text = mod.TotMarbetesLocalizacion(f2.txtMarbete.Text.Trim(), dr["Clave"].ToString().Trim(), dr["Localizacion"].ToString().Trim()).ToString();
-                                        f.totmarbetes = mod.TotMarbetesLocalizacion(f2.txtMarbete.Text.Trim(), dr["Clave"].ToString().Trim(), dr["Localizacion"].ToString().Trim());
+                                        frm_marbete f = new frm_marbete();
+                                        frmDatosMarbete f2 = new frmDatosMarbete();
+                                        f.marbete = marbete;
+                                        f.lbl_marbete.Text = marbete.ToString();
+                                        f.lbl_clave.Text = dr["Clave"].ToString().Trim();
+                                        f.lbl_loc.Text = dr["Localizacion"].ToString().Trim();
+                                        f.txt_desc.Text = dr["Descr"].ToString().Trim();
+                                        f.lblUnidad.Text = dr["Unidad"].ToString().Trim();
+                                        f.CantFisica = decimal.Parse(dr["Cant_Fisica"].ToString().Trim());
+                                        f.lbl_pasillo.Text = dr["Pasillo"].ToString().Trim();
+                                        if (!string.IsNullOrEmpty(dr["LotSerNbr"].ToString().Trim()))
+                                        {
+                                            f.lblLote.Text = dr["LotSerNbr"].ToString().Trim();
+                                            f.lblTotMarbetes.Text = mod.TotMarbetesLocalizacion(f2.txtMarbete.Text.Trim(), dr["Clave"].ToString().Trim(), dr["Localizacion"].ToString().Trim()).ToString();
+                                            f.totmarbetes = mod.TotMarbetesLocalizacion(f2.txtMarbete.Text.Trim(), dr["Clave"].ToString().Trim(), dr["Localizacion"].ToString().Trim());
+                                        }
+                                        else
+                                        {
+                                            f.lblLote.Text = "";
+                                            f.lblTotMarbetes.Text = "1";
+                                            f.totmarbetes = 1;
+                                        }
+                                        f.diferencias = false;
+                                        this.Close();
+                                        f.Show();
+
                                     }
                                     else
                                     {
-                                        f.lblLote.Text = "";
-                                        f.lblTotMarbetes.Text = "1";
-                                        f.totmarbetes = 1;
-                                    }
+                                        MessageBox.Show("Articulo ya capturado.");
+                                        this.Close();
+                                        frmDatosMarbete f = new frmDatosMarbete();
+                                        f.Show();
 
-                                    this.Close();
-                                    f.Show();
+
+
+
+                                    }// if (dt.Tables[0].Rows.Count > 0)
+
+                                    //try
 
                                 }
                                 else
                                 {
-                                    MessageBox.Show("Articulo ya capturado.");
+                                    MessageBox.Show("Error al obtener marbetes en la localizacion");
                                     this.Close();
-                                    frmDatosMarbete f = new frmDatosMarbete();
-                                    f.Show();
 
-                                    
-                                    
-                                    
-                                }// if (dt.Tables[0].Rows.Count > 0)
-
-                                //try
-
+                                    txtLoc.Text = "";
+                                    txtLoc.Focus();
+                                }
                             }
                             else
                             {
                                 MessageBox.Show("Error al obtener marbetes en la localizacion");
-                                this.Close();
-
                                 txtLoc.Text = "";
                                 txtLoc.Focus();
+
                             }
                         }
                         else
                         {
-                            MessageBox.Show("Error al obtener marbetes en la localizacion");
-                            txtLoc.Text = "";
-                            txtLoc.Focus();
+                            //obtener los datos del marbete asignado a la localizacion por articulo
+                            DataSet dt = mod.ObtenerMarbeteLocalizacionConDiferencia(txtLoc.Text.Trim().ToUpper(), Global.piid, txtArt.Text.Trim());
+                            int marbete = 0;
+                            if (dt != null)
+                            {
+                                if (dt.Tables.Count > 0)
+                                {
+                                    if (dt.Tables[0].Rows.Count > 0)
+                                    {
+                                        DataRow dr = dt.Tables[0].Rows[0];
+                                        //Conteo1
+                                        //Diferencias
+                                        //IdPareja
 
+                                        marbete = int.Parse(dr["Etiqueta"].ToString());
+
+                                        if (!string.IsNullOrEmpty(dr["Conteo1"].ToString()))
+                                        {
+                                            if (!string.IsNullOrEmpty(dr["Diferencias"].ToString()))
+                                            {
+                                                if (bool.Parse(dr["Diferencias"].ToString())==true)
+                                                {
+                                                    frm_marbete f = new frm_marbete();
+                                                    frmDatosMarbete f2 = new frmDatosMarbete();
+                                                    f.marbete = marbete;
+                                                    f.lbl_marbete.Text = marbete.ToString();
+                                                    f.lbl_clave.Text = dr["Clave"].ToString().Trim();
+                                                    f.lbl_loc.Text = dr["Localizacion"].ToString().Trim();
+                                                    f.txt_desc.Text = dr["Descr"].ToString().Trim();
+                                                    f.lblUnidad.Text = dr["Unidad"].ToString().Trim();
+                                                    f.CantFisica = decimal.Parse(dr["Cant_Fisica"].ToString().Trim());
+                                                    f.lbl_pasillo.Text = dr["Pasillo"].ToString().Trim();
+                                                    if (!string.IsNullOrEmpty(dr["LotSerNbr"].ToString().Trim()))
+                                                    {
+                                                        f.lblLote.Text = dr["LotSerNbr"].ToString().Trim();
+                                                        f.lblTotMarbetes.Text = mod.TotMarbetesLocalizacion(f2.txtMarbete.Text.Trim(), dr["Clave"].ToString().Trim(), dr["Localizacion"].ToString().Trim()).ToString();
+                                                        f.totmarbetes = mod.TotMarbetesLocalizacion(f2.txtMarbete.Text.Trim(), dr["Clave"].ToString().Trim(), dr["Localizacion"].ToString().Trim());
+                                                    }
+                                                    else
+                                                    {
+                                                        f.lblLote.Text = "";
+                                                        f.lblTotMarbetes.Text = "1";
+                                                        f.totmarbetes = 1;
+                                                    }
+                                                    f.diferencias = true;
+                                                    this.Close();
+                                                    f.Show();
+                                                }
+                                                else
+                                                {
+                                                    MessageBox.Show("Esta localizacion NO tiene marbete(s) con diferencias.");
+                                                }
+                                            }
+                                        }
+                                        //Pasillo, 
+                                        //Etiqueta, 
+                                        //Clave, 
+                                        //Localizacion, Cant_Fisica, Unidad, Costo, Conteo1, Conteo2, Observaciones, Variacion_Conteo, Diferencias, Conteos, IdPareja, 
+                                        //Descr, LotSerNbr
+
+                                       
+
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Articulo ya capturado.");
+                                        this.Close();
+                                        frmDatosMarbete f = new frmDatosMarbete();
+                                        f.Show();
+
+
+
+
+                                    }// if (dt.Tables[0].Rows.Count > 0)
+
+                                    //try
+
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Error al obtener marbetes en la localizacion");
+                                    this.Close();
+
+                                    txtLoc.Text = "";
+                                    txtLoc.Focus();
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Error al obtener marbetes en la localizacion");
+                                txtLoc.Text = "";
+                                txtLoc.Focus();
+
+                            }
                         }
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Localizacion no coincide con articulo.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+                    DataSet dt = mod.ObtenerLocalizacionesArticulo(Global.piid, txtArt.Text.Trim());
+                    string localizaciones="";
+                    if (dt != null)
+                    {
+                        if (dt.Tables.Count > 0)
+                        {
+                            if (dt.Tables[0].Rows.Count > 0)
+                            {
+                               
+                                foreach(DataRow dr in dt.Tables[0].Rows)
+                                {
+                                    localizaciones += dr["Localizacion"]+", ";
+                                }
+                                localizaciones=localizaciones.Substring(0, localizaciones.Length - 2);
+                            }
+                        }
+                    }
+                    MessageBox.Show("Localizacion no coincide con articulo, debe ir en las localizaciones: "+localizaciones, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
                     btnMarbeteManual.Visible = true;
                     /*
                     this.Close();

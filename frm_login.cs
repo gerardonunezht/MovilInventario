@@ -60,14 +60,14 @@ namespace InventarioCL
                                 }
                                 else
                                 {
-                                    MessageBox.Show("Número de empleado no encontrado o ya tiene una sesión abierta."); ;
+                                    MessageBox.Show("Número de empleado no registrado."); ;
                                     txtPareja.Text = "";
                                     txtPareja.Focus();
                                 }
                             }
                             else
                             {
-                                MessageBox.Show("Número de empleado no encontrado"); ;
+                                MessageBox.Show("Número de empleado no registrado"); ;
                                 txtPareja.Text = "";
                                 txtPareja.Focus();
 
@@ -75,14 +75,14 @@ namespace InventarioCL
                         }
                         else
                         {
-                            MessageBox.Show("Número de empleado no encontrado"); ;
+                            MessageBox.Show("Número de empleado no registrado"); ;
                             txtPareja.Text = "";
                             txtPareja.Focus();
                         }
                     }
                     else
                     {
-                        MessageBox.Show("Introduzca número de empleado correctamente.."); ;
+                        MessageBox.Show("Introduzca un número de empleado."); ;
                         txtPareja.Text = "";
                         txtPareja.Focus();
                     }
@@ -92,13 +92,13 @@ namespace InventarioCL
                 }
                 else
                 {
-                    MessageBox.Show("Seleccione el inventario correctamente");
+                    MessageBox.Show("Seleccione un inventario.");
 
                 }
             }
             else
             {
-                MessageBox.Show("Seleccione el almacen correctamente..");
+                MessageBox.Show("Seleccione un almacén.");
             }
         }
 
@@ -113,10 +113,11 @@ namespace InventarioCL
             Application.Exit();  
         }
 
+        
         void lista_almacenes()
         {
             DataSet dt = new DataSet();
-            dt = mod.lista_almacenes();
+            dt = mod.lista_almacenes_activos();
             cbo_almacen.Items.Clear();
             if (dt != null)
             {
@@ -126,6 +127,7 @@ namespace InventarioCL
                     {
                         cbo_almacen.Items.Add(dr["SiteID"].ToString().Trim());
                     }
+
                 }
             }
         }
@@ -145,11 +147,8 @@ namespace InventarioCL
                 {
                     foreach (DataRow dr in dt.Tables[0].Rows)
                     {
-
                         cbo_inventario.Items.Add(dr["PIID"].ToString().Trim());
                     }
-
-
                 }
             }
         }
@@ -171,19 +170,10 @@ namespace InventarioCL
                 lblServidor.ForeColor = Color.Green;
                 lblServidor.Text = "Servidor: Pruebas";
             }
-
-
     
-            lblCompilacion.Text = "Versión:  " + GetCurrentPublishVersion();
+            lblCompilacion.Text = "Versión:  06.10.2017";
             lista_almacenes();
-            if (cbo_almacen.Items.Count != 0)
-            {
-                string siteid = mod.defualt_siteid();
-                if (siteid != "")
-                {
-                    cbo_almacen.Text = siteid;
-                }
-            }
+
         }
 
         private void cbo_almacen_SelectedValueChanged(object sender, EventArgs e)
@@ -206,16 +196,6 @@ namespace InventarioCL
             txtPareja.BackColor = Color.White ;
         }
 
-        private void txtPareja_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            /*if (e.KeyChar == Convert.ToChar(Keys.Enter))
-            {
-                // Lo que hará al presionarse Enter
-                //btnAceptar.Focus();
-            } */
-
-        }
-
         private void txtPareja_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode ==Keys.Enter)
@@ -224,5 +204,6 @@ namespace InventarioCL
             }
 
         }
+
     }
 }

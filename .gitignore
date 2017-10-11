@@ -21,3 +21,7 @@ obj/Debug/InventarioCL.frmSelInventario.resources
 obj/Debug/InventarioCL.frmListaLocalizacionesPorContar.resources
 obj/Debug/InventarioCL.frmValidaLocalizacionArticulo.resources
 obj/Debug/InventarioCL.frm_Menu.resources
+bin/Debug/Producción 06-04-2017/InventarioCL.pdb
+bin/Debug/Producción 06-04-2017/System.Data.SqlClient.dll
+bin/Debug/Pruebas 06-04-2017/InventarioCL.pdb
+bin/Debug/Pruebas 06-04-2017/System.Data.SqlClient.dll
